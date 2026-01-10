@@ -1,0 +1,3 @@
+
+ls --help
+# Displays the help manual for the ls command including all available options.
