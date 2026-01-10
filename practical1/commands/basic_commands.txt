@@ -1,1 +1,38 @@
+pwd
+# Displays the present working directory.
 
+ls
+# Lists all files and directories in the current location.
+
+ls -l
+# Lists files and directories in long format with permissions and size.
+
+ls -a
+# Displays all files including hidden files.
+
+cd linux_lab
+# Changes the current directory to linux_lab.
+
+cd ..
+# Moves one level up in the directory structure.
+
+mkdir linux_lab
+# Creates a new directory named linux_lab.
+
+touch file1.txt
+# Creates an empty file named file1.txt.
+
+vi file1.txt
+# Opens the file file1.txt using vi editor for editing.
+
+rm file1.txt
+# Deletes the file file1.txt.
+
+rm -r linux_lab
+# Deletes the directory linux_lab along with its contents.
+
+clear
+# Clears the terminal screen.
+
+history
+# Displays previously executed commands.
