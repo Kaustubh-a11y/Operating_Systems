@@ -1,5 +1,0 @@
-gcc hello.c
-# Compiles the C source file.
-
-./a.out
-# Executes the compiled C program.
