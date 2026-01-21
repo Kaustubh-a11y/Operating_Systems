@@ -1,0 +1,53 @@
+conditon.c
+#include <stdio.h>
+
+int main() {
+    int year;
+    printf("Enter a year: ");
+    scanf("%d", &year);
+
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+        printf("%d is a Leap Year.\n", year);
+    else
+        printf("%d is not a Leap Year.\n", year);
+}
+
+condition2.c
+#include <stdio.h>
+
+int main() {
+int n, i = 0;
+int a = 0, b = 1, c;
+
+printf("Enter number of terms: ");
+scanf("%d", &n);
+
+while (i < n) {
+printf("%d ", a);
+c = a + b;
+a = b;
+b = c;
+i++;
+}
+
+
+}
+
+condition3.c
+#include <stdio.h>
+
+int main() {
+int i = 1, n;
+
+printf("Enter n: ");
+scanf("%d", &n);
+
+do {
+printf("%d ", i);
+i++;
+} while (i <= n);
+
+return 0;
+}
+
+
