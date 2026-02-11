@@ -1,61 +1,88 @@
 #include <stdio.h>
 
-#define MAX 100
+#define MAX_PROCESSES 10
 
-int main() {
-    int n, i, j;
-    int processes[MAX], bt[MAX], wt[MAX], tat[MAX];
-    float total_wt = 0, total_tat = 0;
+// Function to find waiting time (Preemptive SJF / SRTF)
+void findWaitingTime(int processes[], int n, int bt[], int wt[]) {
+    int remaining_bt[MAX_PROCESSES];
+    
+    for (int i = 0; i < n; i++)
+        remaining_bt[i] = bt[i];
 
-    printf("Enter number of processes: ");
-    scanf("%d", &n);
+    int complete = 0, current_time = 0;
+    int shortest = 0, finish_time;
+    int done;
 
-    printf("Enter burst times:\n");
-    for(i = 0; i < n; i++) {
-        processes[i] = i + 1;
-        printf("P%d: ", i + 1);
-        scanf("%d", &bt[i]);
-    }
+    while (complete != n) {
+        int min_bt = 9999;
+        done = 0;
 
-    // Sort processes by burst time (Non-preemptive SJF)
-    for(i = 0; i < n - 1; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(bt[i] > bt[j]) {
-                // Swap burst times
-                int temp = bt[i];
-                bt[i] = bt[j];
-                bt[j] = temp;
-
-                // Swap process numbers
-                temp = processes[i];
-                processes[i] = processes[j];
-                processes[j] = temp;
+        for (int i = 0; i < n; i++) {
+            if (remaining_bt[i] > 0 && remaining_bt[i] < min_bt) {
+                min_bt = remaining_bt[i];
+                shortest = i;
+                done = 1;
             }
         }
-    }
 
-    // Calculate waiting time
-    wt[0] = 0;
-    for(i = 1; i < n; i++) {
-        wt[i] = wt[i - 1] + bt[i - 1];
-    }
+        if (done == 0) {
+            current_time++;
+            continue;
+        }
 
-    // Calculate turnaround time
-    for(i = 0; i < n; i++) {
-        tat[i] = wt[i] + bt[i];
-    }
+        remaining_bt[shortest]--;
 
-    // Display results
-    printf("\nProcess\tBurst Time\tWaiting Time\tTurnaround Time\n");
-    for(i = 0; i < n; i++) {
+        if (remaining_bt[shortest] == 0) {
+            complete++;
+            finish_time = current_time + 1;
+
+            wt[shortest] = finish_time - bt[shortest];
+
+            if (wt[shortest] < 0)
+                wt[shortest] = 0;
+        }
+
+        current_time++;
+    }
+}
+
+// Function to find turnaround time
+void findTurnaroundTime(int processes[], int n, int bt[], int wt[], int tat[]) {
+    for (int i = 0; i < n; i++)
+        tat[i] = bt[i] + wt[i];
+}
+
+// Function to find average time
+void findAverageTime(int processes[], int n, int bt[]) {
+    int wt[MAX_PROCESSES], tat[MAX_PROCESSES];
+    int total_wt = 0, total_tat = 0;
+
+    findWaitingTime(processes, n, bt, wt);
+    findTurnaroundTime(processes, n, bt, wt, tat);
+
+    printf("Processes   Burst Time   Waiting Time   Turnaround Time\n");
+
+    for (int i = 0; i < n; i++) {
         total_wt += wt[i];
         total_tat += tat[i];
-        printf("P%d\t%d\t\t%d\t\t%d\n",
+
+        printf("   %d\t\t%d\t\t%d\t\t%d\n",
                processes[i], bt[i], wt[i], tat[i]);
     }
 
-    printf("\nAverage Waiting Time = %.2f", total_wt / n);
-    printf("\nAverage Turnaround Time = %.2f\n", total_tat / n);
+    printf("\nAverage Waiting Time = %.2f",
+           (float)total_wt / n);
+    printf("\nAverage Turnaround Time = %.2f\n",
+           (float)total_tat / n);
+}
+
+// Main function
+int main() {
+    int processes[] = {1, 2, 3, 4};
+    int n = 4;
+    int burst_time[] = {6, 8, 7, 3};
+
+    findAverageTime(processes, n, burst_time);
 
     return 0;
 }
