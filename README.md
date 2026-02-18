@@ -23,6 +23,12 @@ It covers **basic Linux commands**, **file handling using vi**, and **C program 
 ## 🧪 Practicals Included
 
 ### 🔹 Practical 1: Basic Linux Commands & C Programs
+### 🔹 Practical 2: C Programs using vi editor
+### 🔹 Practical 3: Explore Nano editor
+### 🔹 Practical 4: Process Creation and PID
+### 🔹 Practical 5: CPU Scheduling (FCFS)
+### 🔹 Practical 6: CPU Scheduling (SJF)
+### 🔹 Practical 7: CPU Scheduling (Round Robin)
 
 
 ---
