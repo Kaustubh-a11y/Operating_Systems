@@ -5,7 +5,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/OS-Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Editor-vi-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Editor-nano-green?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Language-C-blue?style=for-the-badge&logo=c"/>
   <img src="https://img.shields.io/badge/Compiler-gcc-black?style=for-the-badge"/>
 </p>
