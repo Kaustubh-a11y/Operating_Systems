@@ -29,6 +29,8 @@ It covers **basic Linux commands**, **file handling using vi**, and **C program 
 ### 🔹 Practical 5: CPU Scheduling (FCFS)
 ### 🔹 Practical 6: CPU Scheduling (SJF)
 ### 🔹 Practical 7: CPU Scheduling (Round Robin)
-
+### 🔹 Practical 8: CPU Scheduling (Priority Queue Scheduling)
+### 🔹 Practical 9: CPU Scheduling (Longest remaining job)
+### 🔹 Practical 10: CPU Scheduling (Banker's Algorithm)
 
 ---
