@@ -33,4 +33,8 @@ It covers **basic Linux commands**, **file handling using vi**, and **C program 
 ### 🔹 Practical 9: CPU Scheduling (Longest remaining job)
 ### 🔹 Practical 10: CPU Scheduling (Banker's Algorithm)
 ### 🔹 Practical 11: Page Replacement (FCFS)
+### 🔹 Practical 12: Banker's Algorithm (Single resource)
+### 🔹 Practical 13: Shell Scripts like addition, age, country etc
+### 🔹 Practical 14: More shell scripts using loops
+### 🔹 Practical 15: Switch Case used in shell scripts
 ---
